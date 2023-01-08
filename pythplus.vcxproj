@@ -131,6 +131,7 @@
     <ClInclude Include="find_index.hpp" />
     <ClInclude Include="get_token.hpp" />
     <ClInclude Include="is_comment.hpp" />
+    <ClInclude Include="is_func.hpp" />
     <ClInclude Include="is_function_call.hpp" />
     <ClInclude Include="is_if.hpp" />
     <ClInclude Include="is_input.hpp" />

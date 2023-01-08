@@ -10,6 +10,7 @@
 #include"is_list.hpp"
 #include"is_input.hpp"
 #include"is_if.hpp"
+#include"is_func.hpp"
 
 auto parse(std::string& s) // takes line by line
     -> std::vector<std::string>
@@ -40,6 +41,17 @@ auto parse(std::string& s) // takes line by line
 		result.push_back("if(" + s.substr(4, s.size() - 2) + "{\n");
 
 		return result;
+	}
+	if (is_func(s))
+	{
+		std::string func_name{s.substr(3, find_index<'('>(s) - 3)};
+		// check if it is a function taking no arguements.
+		if (s[find_index<'('>(s) + 1] == ')')
+		{
+			// A function taking no arguaments.
+			result.push_back("auto" + func_name + "() {");
+			return result;
+		}
 	}
 	if (is_var(s))
 	{

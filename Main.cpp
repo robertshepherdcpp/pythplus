@@ -2,5 +2,5 @@
 
 int main()
 {
-	run("if(x == y):");
+	run("def function():");
 }
