@@ -132,6 +132,8 @@
     <ClInclude Include="get_token.hpp" />
     <ClInclude Include="is_comment.hpp" />
     <ClInclude Include="is_function_call.hpp" />
+    <ClInclude Include="is_input.hpp" />
+    <ClInclude Include="is_list.hpp" />
     <ClInclude Include="is_var.hpp" />
     <ClInclude Include="parse.hpp" />
   </ItemGroup>

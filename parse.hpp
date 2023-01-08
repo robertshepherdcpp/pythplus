@@ -7,11 +7,24 @@
 #include"find_index.hpp"
 #include"is_comment.hpp"
 #include"is_function_call.hpp"
+#include"is_list.hpp"
+#include"is_input.hpp"
 
 auto parse(std::string& s) // takes line by line
     -> std::vector<std::string>
 {
 	std::vector<std::string> result{};
+	if (is_input(s))
+	{
+		// notice ]need to parse before `is_var`.
+		// first of all, lets get the variable name:
+		std::string name = s.substr(0, get_token_index(s));
+		std::string parameters = s.substr(get_token_index(s) + 9, s.size() - 1);
+		result.push_back("std::cout " + parameters + ";\n");
+		result.push_back("std::any " + name + " = 0;");
+		result.push_back("std::cin >> name;");
+		return result;
+	}
 	if (is_var(s))
 	{
 		std::string name{};
@@ -54,5 +67,22 @@ auto parse(std::string& s) // takes line by line
 		std::string function_parameters = s.substr(index_of_open_bracket, index_of_close_bracket);
 		result.push_back(function_name + function_parameters + ";");
 		return result;
+	}
+	if (is_list(s))
+	{
+		// we have a list so we need to use std::vector.
+		std::string type = "std::vector";
+		std::string name = get_token(s);
+		if ((s[get_token_index(s) + 3] == '[') && (s[get_token_index(s) + 4] == ']'))
+		{
+			// we just have a default initialized list, so lets do that:
+			result.push_back(type + " " + name + "{};");
+			return result;
+		}
+		else
+		{
+			// otherwise we have an initialized list.
+			std::string initializers{};
+		}
 	}
 }

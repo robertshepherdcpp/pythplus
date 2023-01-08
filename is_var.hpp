@@ -13,7 +13,15 @@ auto is_var(std::string& s)
 		if (s[i + 1] == '=')
 		{
 			// we have a variable.
-			return true;
+			if (s[i + 3] == '[')
+			{
+				// reason that we are doing this is because, if we have a list, we want to handle it seperatly.
+				return false;
+			}
+			else
+			{
+				return true;
+			}
 		}
 		else
 		{

@@ -2,5 +2,5 @@
 
 int main()
 {
-	run("print(42)");
+	run("variable = []");
 }

@@ -36,6 +36,12 @@
     <ClInclude Include="is_function_call.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="is_list.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="is_input.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
