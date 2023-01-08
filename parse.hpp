@@ -9,6 +9,7 @@
 #include"is_function_call.hpp"
 #include"is_list.hpp"
 #include"is_input.hpp"
+#include"is_if.hpp"
 
 auto parse(std::string& s) // takes line by line
     -> std::vector<std::string>
@@ -21,8 +22,23 @@ auto parse(std::string& s) // takes line by line
 		std::string name = s.substr(0, get_token_index(s));
 		std::string parameters = s.substr(get_token_index(s) + 9, s.size() - 1);
 		result.push_back("std::cout " + parameters + ";\n");
-		result.push_back("std::any " + name + " = 0;");
-		result.push_back("std::cin >> name;");
+		result.push_back("std::any " + name + " = 0;\n");
+		result.push_back("std::cin >> name;\n");
+		return result;
+	}
+	if (is_if(s))
+	{
+		// we have got an if that looks like this:
+		// if(condition):
+		// ...
+		// elif(condition):
+		// ...
+		// else:
+		// ...
+
+		// first just the easy bit:
+		result.push_back("if(" + s.substr(4, s.size() - 2) + "{\n");
+
 		return result;
 	}
 	if (is_var(s))

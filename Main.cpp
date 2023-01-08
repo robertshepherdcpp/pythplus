@@ -2,5 +2,5 @@
 
 int main()
 {
-	run("variable = []");
+	run("if(x == y):");
 }

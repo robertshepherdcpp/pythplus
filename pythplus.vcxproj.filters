@@ -42,6 +42,9 @@
     <ClInclude Include="is_input.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="is_if.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
