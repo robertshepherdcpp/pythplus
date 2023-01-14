@@ -2,5 +2,6 @@
 
 int main()
 {
-	run("def function():");
+	// make # START_OF_FOR_LOOP
+	run("for x in chars");
 }

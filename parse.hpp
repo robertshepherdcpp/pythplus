@@ -11,6 +11,8 @@
 #include"is_input.hpp"
 #include"is_if.hpp"
 #include"is_func.hpp"
+#include"is_end_of_for_loop.hpp"
+#include"is_for_loop.hpp"
 
 auto parse(std::string& s) // takes line by line
     -> std::vector<std::string>
@@ -27,6 +29,10 @@ auto parse(std::string& s) // takes line by line
 		result.push_back("std::cin >> name;\n");
 		return result;
 	}
+	if (is_end_of_for_loop(s))
+	{
+		result.push_back("}\n");
+	}
 	if (is_if(s))
 	{
 		// we have got an if that looks like this:
@@ -41,6 +47,16 @@ auto parse(std::string& s) // takes line by line
 		result.push_back("if(" + s.substr(4, s.size() - 2) + "{\n");
 
 		return result;
+	}
+	if (is_for_loop(s))
+	{
+		// we have a for loop
+		result.push_back("for(");
+		if (get_token_amount(s, 3) == "in")
+		{
+			auto var_name = get_token_amount(s, 2);
+			result.push_back("auto " + var_name + " : " + "in" + get_token_amount(s, 4));
+		}
 	}
 	if (is_func(s))
 	{
