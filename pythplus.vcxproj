@@ -140,6 +140,7 @@
     <ClInclude Include="is_list.hpp" />
     <ClInclude Include="is_var.hpp" />
     <ClInclude Include="parse.hpp" />
+    <ClInclude Include="start_of_for.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />

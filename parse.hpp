@@ -13,6 +13,7 @@
 #include"is_func.hpp"
 #include"is_end_of_for_loop.hpp"
 #include"is_for_loop.hpp"
+#include"start_of_for.hpp"
 
 auto parse(std::string& s) // takes line by line
     -> std::vector<std::string>
@@ -57,6 +58,10 @@ auto parse(std::string& s) // takes line by line
 			auto var_name = get_token_amount(s, 2);
 			result.push_back("auto " + var_name + " : " + "in" + get_token_amount(s, 4));
 		}
+	}
+	if (start_of_for(s))
+	{
+		result.push_back("{\n");
 	}
 	if (is_func(s))
 	{
